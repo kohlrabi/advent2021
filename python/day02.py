@@ -15,11 +15,24 @@ def part1(directions):
             pos[1] += step
     return pos[0] * pos[1]
 
+def part2(directions):
+    pos = [0, 0]
+    aim = 0
+    for cmd, step in directions:
+        if cmd == 'f':
+            pos[0] += step
+            pos[1] += aim * step
+        elif cmd == 'u':
+            aim -= step
+        elif cmd == 'd':
+            aim += step
+    return pos[0] * pos[1]
+
 def main():
     d = [line.split() for line in fileinput.input()]
     d = [(line[0][0], int(line[1])) for line in d]
     print(part1(d))
-    #print(part2(d))
+    print(part2(d))
 
 
 if __name__ == '__main__':
