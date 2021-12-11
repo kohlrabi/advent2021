@@ -18,10 +18,10 @@ def part1(numbers):
 
 def part2(numbers):
     s = 0
-    last = None
+    last = float('inf')
     for a in triplewise(numbers):
         x = sum(a)
-        if last is not None and x > last:
+        if x > last:
             s += 1
         last = x
     return s
